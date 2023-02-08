@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import Dashboard from "./components/pages/Dashboard";
+import Filepond from "./components/pages/Filepond";
+import Form from "./components/pages/Form";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Fragment>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route path="dashboard" element={<Dashboard/>} />
+                    <Route path="filepond" element={<Filepond />} />
+                    <Route path="registerForm" element={<Form />}/>
+                </Route>
+            </Routes>
+        </Fragment>
+    );
 }
 
 export default App;
